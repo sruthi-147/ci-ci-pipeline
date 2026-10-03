@@ -2,6 +2,13 @@ pipeline {
     agent any
 
     stages {
+
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/sruthi-147/ci-ci-pipeline.git'
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 bat 'docker build --no-cache -t vite-app .'
